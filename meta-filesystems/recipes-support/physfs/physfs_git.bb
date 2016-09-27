@@ -6,6 +6,10 @@ DEPENDS = "readline zlib"
 
 inherit cmake
 
-SRC_URI = "http://icculus.org/${BPN}/downloads/${BP}.tar.bz2"
-SRC_URI[md5sum] = "c2c727a8a8deb623b521b52d0080f613"
-SRC_URI[sha256sum] = "ca862097c0fb451f2cacd286194d071289342c107b6fe69079c079883ff66b69"
+SRC_URI = " \
+    git://github.com/SuperTux/physfs.git \
+    file://0001-fix-build-with-gcc-6.patch \
+"
+SRCREV = "f3b45a94d0b7c0a85469b1e60fefd8383b6719ba"
+S = "${WORKDIR}/git"
+PV = "2.0.3+git${SRCPV}"
